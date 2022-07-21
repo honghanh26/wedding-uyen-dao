@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
-import { ROUTE_USER_HOME, ROUTE_ADMIN_BANNERS } from '../../routes';
+import * as routes from '../../routes';
 
 const menus = [
     {
@@ -12,7 +12,7 @@ const menus = [
     },
     {
         name : 'Banners',
-        to : ROUTE_ADMIN_BANNERS,
+        to : routes.ROUTE_ADMIN_BANNERS,
         exact : true,
         icon: 'fas fa-sliders-h'
     }
@@ -32,7 +32,7 @@ const MenuLink = ({
         <li className="rounded-lg mb-2">
             <NavLink
                 to={to}
-                exact={activeOnlyWhenExact}
+                exact={activeOnlyWhenExact.toString()}
                 className={({ isActive }) => (isActive ? className + activeClassName : className)}
             >
                 <i className={icon}></i>
@@ -75,7 +75,7 @@ export default function Sidebar() {
             >
                 <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
                     <a
-                        href={ROUTE_USER_HOME}
+                        href={routes.ROUTE_USER_HOME}
                         target="_blank"
                         rel="noreferrer"
                         className="mt-2 text-center w-full inline-block"
