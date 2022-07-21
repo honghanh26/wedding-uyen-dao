@@ -5,14 +5,11 @@ import {
     CardBody,
   } from "@material-tailwind/react";
 import Team1 from '../assets/img/team-1-800x800.jpg';
-import Team2 from '../assets/img/team-2-800x800.jpg';
-import Team3 from '../assets/img/team-3-800x800.jpg';
-import Team4 from '../assets/img/team-4-470x470.png';
 
 export default function CardTable() {
     return (
         <Card>
-            <CardHeader color="purple" className="p-4">
+            <CardHeader color="blue" className="p-4">
                 <h2 className="text-white text-2xl">Card Table</h2>
             </CardHeader>
             <CardBody>

@@ -2,7 +2,65 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
 import { ROUTE_USER_HOME, ROUTE_ADMIN_BANNERS } from '../../routes';
-import { IconButton } from "@material-tailwind/react";
+
+const menus = [
+    {
+        name : 'Users',
+        to : '/admin/users',
+        exact : false,
+        icon: 'fas fa-users'
+    },
+    {
+        name : 'Banners',
+        to : ROUTE_ADMIN_BANNERS,
+        exact : true,
+        icon: 'fas fa-sliders-h'
+    }
+];
+
+//Custom Link
+const MenuLink = ({
+    label,
+    to,
+    activeOnlyWhenExact,
+    icon
+}) => {
+    let className = 'flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg';
+    let activeClassName = ' bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md';
+
+    return (
+        <li className="rounded-lg mb-2">
+            <NavLink
+                to={to}
+                exact={activeOnlyWhenExact}
+                className={({ isActive }) => (isActive ? className + activeClassName : className)}
+            >
+                <i className={icon}></i>
+                {label}
+            </NavLink>
+        </li>  
+    );
+}
+
+const showMenus = (menus) => {
+    var result = null;
+
+    if (menus.length > 0) {
+        result = menus.map((menu, index) => {
+            return (
+                <MenuLink 
+                    key={index} 
+                    label={menu.name} 
+                    to={menu.to} 
+                    activeOnlyWhenExact={menu.exact}
+                    icon={menu.icon}
+                />
+            );
+        });
+    }
+
+    return result;
+}
 
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
@@ -28,48 +86,7 @@ export default function Sidebar() {
                         <hr className="my-4 min-w-full" />
 
                         <ul className="flex-col min-w-full flex list-none">
-                            <li className="rounded-lg mb-4">
-                                <NavLink
-                                    to={ROUTE_ADMIN_BANNERS}
-                                    exact="true"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                >
-                                    <IconButton size="lg">
-                                        <i className="fas fa-sliders-h"></i>
-                                    </IconButton>
-                                    Banners
-                                </NavLink>
-                            </li>
-                            {/* <li className="rounded-lg mb-2">
-                                <NavLink
-                                    to="/settings"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
-                                >
-                                    <Icon name="settings" size="2xl" />
-                                    Settings
-                                </NavLink>
-                            </li>
-                            <li className="rounded-lg mb-2 ">
-                                <NavLink
-                                    to="/tables"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
-                                >
-                                    <Icon name="toc" size="2xl" />
-                                    Tables
-                                </NavLink>
-                            </li>
-                            <li className="rounded-lg mb-2 text-gray-700">
-                                <NavLink
-                                    to="/maps"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
-                                >
-                                    <Icon name="map" size="2xl" />
-                                    Maps
-                                </NavLink>
-                            </li> */}
+                            { showMenus(menus) }
                         </ul>
                     </div>
                 </div>
