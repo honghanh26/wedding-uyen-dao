@@ -1,5 +1,6 @@
-import './App.css';
+import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import './App.css';
 import Sidebar from './admin/components/Sidebar';
 import routes from './routes';
 
@@ -11,8 +12,8 @@ function App() {
                 <Routes>
                     { showContentMenu(routes) }
                     <Route
-                        path="*"
-                        element={<Navigate to="/" replace />}
+                        path="/admin"
+                        element={<Navigate to="/admin/banners" replace />}
                     />
                 </Routes>
             </div>
@@ -30,7 +31,7 @@ const showContentMenu = (routes) => {
                     key={index} 
                     path={route.path} 
                     exact={route.exact} 
-                    component={route.main} 
+                    element={React.createElement(route.main)}
                 />
             );
         });

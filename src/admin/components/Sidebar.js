@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// import AdminNavbar from './AdminNavbar';
+import AdminNavbar from './AdminNavbar';
+import { ROUTE_USER_HOME, ROUTE_ADMIN_BANNERS } from '../../routes';
 import { IconButton } from "@material-tailwind/react";
 
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
     return (
         <>
-            {/* <AdminNavbar
+            <AdminNavbar
                 showSidebar={showSidebar}
                 setShowSidebar={setShowSidebar}
-            /> */}
+            />
             <div
                 className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
             >
                 <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
                     <a
-                        href="/"
+                        href={ROUTE_USER_HOME}
                         target="_blank"
                         rel="noreferrer"
                         className="mt-2 text-center w-full inline-block"
@@ -29,13 +30,12 @@ export default function Sidebar() {
                         <ul className="flex-col min-w-full flex list-none">
                             <li className="rounded-lg mb-4">
                                 <NavLink
-                                    to="/"
-                                    exact
+                                    to={ROUTE_ADMIN_BANNERS}
+                                    exact="true"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <IconButton size="lg">
-                                        <i class="fas fa-sliders-h"></i>
+                                        <i className="fas fa-sliders-h"></i>
                                     </IconButton>
                                     Banners
                                 </NavLink>

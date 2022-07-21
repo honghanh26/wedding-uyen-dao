@@ -12,7 +12,7 @@ import Team4 from '../assets/img/team-4-470x470.png';
 export default function CardTable() {
     return (
         <Card>
-            <CardHeader color="purple" contentPosition="left">
+            <CardHeader color="purple" className="p-4">
                 <h2 className="text-white text-2xl">Card Table</h2>
             </CardHeader>
             <CardBody>
@@ -54,24 +54,6 @@ export default function CardTable() {
                                         <div className="w-10 h-10 rounded-full border-2 border-white">
                                             <Avatar
                                                 src={Team1}
-                                                variant="circular"
-                                            />
-                                        </div>
-                                        <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Avatar
-                                                src={Team2}
-                                                variant="circular"
-                                            />
-                                        </div>
-                                        <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Avatar
-                                                src={Team3}
-                                                variant="circular"
-                                            />
-                                        </div>
-                                        <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Avatar
-                                                src={Team4}
                                                 variant="circular"
                                             />
                                         </div>
