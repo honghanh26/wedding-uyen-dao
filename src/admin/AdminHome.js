@@ -11,7 +11,7 @@ function AdminHome() {
                 <Routes>
                     { showContentMenu(routes) }
                     <Route
-                        path="/admin"
+                        path="/"
                         element={<Navigate to="/admin/banners" replace />}
                     />
                 </Routes>

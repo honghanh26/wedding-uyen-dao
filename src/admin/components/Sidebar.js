@@ -12,7 +12,7 @@ const menus = [
     },
     {
         name : 'Banners',
-        to : routes.ROUTE_ADMIN_BANNERS,
+        to : '/admin' + routes.ROUTE_ADMIN_BANNERS,
         exact : true,
         icon: 'fas fa-sliders-h'
     }
