@@ -438,6 +438,8 @@ button:focus{
 .slick-dots li button {
 	background: rgba(255,255,255,.5) !important;
 	box-shadow: 0 1px 1px rgb(0 0 0 / 10%) !important;
+	width: 15px !important;
+	height: 15px !important;
 	border-radius: 50%;
 }
 .slick-dots li.slick-active button {

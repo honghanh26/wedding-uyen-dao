@@ -7,7 +7,7 @@ import UserHome from './user/UserHome';
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<UserHome />} />
+            <Route path="*" element={<UserHome />} />
             <Route path="/admin/*" element={<AdminHome />} />
         </Routes>
     );
