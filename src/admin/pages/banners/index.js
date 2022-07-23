@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import TableCard from '../components/TableCard';
-import * as Api from '../../Api';
+import TableCard from './TableCard';
+import * as Api from '../../../Api';
 
 export default function Banners() {
     const [data, setData] = useState([]);
@@ -48,7 +48,7 @@ export default function Banners() {
                                 Loading...
                             </button>
                         ) : (
-                            <TableCard listBanners={data}/>
+                            <TableCard list={data}/>
                         )}
                     </div>
                 </div>

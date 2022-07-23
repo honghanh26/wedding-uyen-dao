@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
 import * as routes from '../../routes';
+import UserContext from '../../UserContext';
 
 const menus = [
     {
         name : 'Users',
         to : '/admin/users',
-        exact : false,
+        exact : true,
         icon: 'fas fa-users'
     },
     {
@@ -15,6 +16,18 @@ const menus = [
         to : '/admin' + routes.ROUTE_ADMIN_BANNERS,
         exact : true,
         icon: 'fas fa-sliders-h'
+    },
+    {
+        name : 'Events',
+        to : '/admin' + routes.ROUTE_ADMIN_EVENTS,
+        exact : true,
+        icon: 'fas fa-calendar-alt'
+    },
+    {
+        name : 'Stories',
+        to : '/admin' + routes.ROUTE_ADMIN_STORIES,
+        exact : true,
+        icon: 'fas fa-history'
     }
 ];
 
@@ -64,6 +77,8 @@ const showMenus = (menus) => {
 
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
+    const { boy, girl } = useContext(UserContext);
+
     return (
         <>
             <AdminNavbar
@@ -80,7 +95,7 @@ export default function Sidebar() {
                         rel="noreferrer"
                         className="mt-2 text-center w-full inline-block"
                     >
-                        <h6 color="gray">Uyen - Dao</h6>
+                        <h6 color="gray">{boy.name} - {girl.name}</h6>
                     </a>
                     <div className="flex flex-col">
                         <hr className="my-4 min-w-full" />

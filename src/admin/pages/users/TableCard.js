@@ -5,18 +5,19 @@ import {
     CardBody,
   } from "@material-tailwind/react";
 import React, { useState, useEffect } from 'react';
+import ImgDefault from '../../assets/img/default-thumbnail.jpeg';
 
 export default function CardTable(props) {
-    const [data, setData] = useState(props.listBanners);
+    const [data, setData] = useState(props.list);
 
     useEffect(() => {
-        setData(props.listBanners);
-    }, [props.listBanners])
+        setData(props.list);
+    }, [props.list])
 
     return (
         <Card>
             <CardHeader color="blue" className="p-4">
-                <h2 className="text-white text-2xl">Card Table</h2>
+                <h2 className="text-white text-2xl">List Users</h2>
             </CardHeader>
             <CardBody>
                 <div className="overflow-x-auto">
@@ -36,8 +37,11 @@ export default function CardTable(props) {
                         </thead>
                         <tbody>
                         {data.map((item, idx) => {
-                            const blob = new Blob([Int8Array.from(item.img.data.data)], {type: item.img.contentType });
-                            const image = window.URL.createObjectURL(blob);
+                            let image = ImgDefault;
+                            if(item?.img?.data) {
+                                const blob = new Blob([Int8Array.from(item.img.data.data)], {type: item.img.contentType });
+                                image = window.URL.createObjectURL(blob);
+                            }
 
                             return (
                                 <tr key={idx}>
@@ -45,7 +49,6 @@ export default function CardTable(props) {
                                         {item.name}
                                     </th>
                                     <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                        <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
                                         {item.description}
                                     </th>
                                     <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
