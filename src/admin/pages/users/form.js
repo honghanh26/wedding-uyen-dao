@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { Card, CardHeader, CardBody, Button, Input, Textarea, Select, Option, Avatar } from '@material-tailwind/react';
 import UserContext from '../../../UserContext';
+import * as routes from '../../../routes';
 import * as Api from '../../../Api';
 import ImgDefault from '../../assets/img/default-thumbnail.jpeg';
 
 export default function UsersForm() {
-    const { users } = useContext(UserContext);
+    const navigate = useNavigate();
+    const { users, setReload } = useContext(UserContext);
     const [user, setUser] = useState({});
     const [value, setValue] = useState({});
     const [selectedImage, setSelectedImage] = useState(null);
@@ -76,7 +78,9 @@ export default function UsersForm() {
         bodyFormData.append('name', value.name);
         bodyFormData.append('description', value.description);
         bodyFormData.append('role', value.role);
-        bodyFormData.append('img', selectedImage);
+        if(selectedImage) {
+            bodyFormData.append('img', selectedImage);
+        }
 
         try {
             await axios({
@@ -85,10 +89,11 @@ export default function UsersForm() {
                 data: bodyFormData,
                 headers: { "Content-Type": "multipart/form-data" },
             })
-            .then(response => console.log(response.data))
+            .then(response => {
+                navigate("/admin" + routes.ROUTE_ADMIN_USERS);
+                setReload(true);
+            })
             .catch(error => { setIsError(true) });
-
-            // setData(result.data.data);
         } catch (error) {
             setIsError(true);
         }

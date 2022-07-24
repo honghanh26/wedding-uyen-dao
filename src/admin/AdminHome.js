@@ -10,39 +10,43 @@ function AdminHome() {
     const [users, setUsers] = useState([]);
     const [boy, setBoy] = useState({});
     const [girl, setGirl] = useState({});
+    const [reload, setReload] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    const fetchUsers = async () => {
+        setIsError(false);
+        setIsLoading(true);
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            setIsError(false);
-            setIsLoading(true);
+        try {
+            const result = await axios(
+                Api.API_GET_ALL_USERS,
+            );
+            let usersTemp = result.data.data;
+            let boyTemp = usersTemp.find(item => item.role === 'husband');
+            let girlTemp = usersTemp.find(item => item.role === 'wife');
 
-            try {
-                const result = await axios(
-                    Api.API_GET_ALL_USERS,
-                );
-                let usersTemp = result.data.data;
-                let boyTemp = usersTemp.find(item => item.role === 'husband');
-                let girlTemp = usersTemp.find(item => item.role === 'wife');
+            setUsers(usersTemp);
+            setBoy(boyTemp);
+            setGirl(girlTemp);
+        } catch (error) {
+            setIsError(true);
+        }
 
-                setUsers(usersTemp);
-                setBoy(boyTemp);
-                setGirl(girlTemp);
-            } catch (error) {
-                setIsError(true);
-            }
-
-            setIsLoading(false);
-        };
-
-        fetchUsers();
-    }, []);
+        setIsLoading(false);
+        setReload(false);
+    };
     const providerValue = useMemo(() => ({
         users, setUsers,
         boy, setBoy,
-        girl, setGirl
+        girl, setGirl,
+        setReload
     }), [users, boy, girl]);
+
+    useEffect(() => {
+        if(reload) {
+            fetchUsers();
+        }
+    }, [reload]);
 
     return (
         <UserProvider value={providerValue}>
