@@ -3,8 +3,11 @@ import {
     Card,
     CardHeader,
     CardBody,
+    IconButton,
   } from "@material-tailwind/react";
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import * as routes from '../../../routes';
 import ImgDefault from '../../assets/img/default-thumbnail.jpeg';
 
 export default function CardTable(props) {
@@ -16,7 +19,7 @@ export default function CardTable(props) {
 
     return (
         <Card>
-            <CardHeader color="blue" className="p-4">
+            <CardHeader color="blue" className="px-3 pt-2">
                 <h2 className="text-white text-2xl">List Users</h2>
             </CardHeader>
             <CardBody>
@@ -32,6 +35,9 @@ export default function CardTable(props) {
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
                                     Image
+                                </th>
+                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -60,6 +66,16 @@ export default function CardTable(props) {
                                                 />
                                             </div>
                                         </div>
+                                    </th>
+                                    <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                        <Link to={`/admin${routes.ROUTE_ADMIN_EDIT_USER.replace(":id", item.id)}`}>
+                                            <IconButton size="sm" color="amber">
+                                                <i className="fas fa-pen"></i>
+                                            </IconButton>
+                                        </Link>
+                                        <IconButton size="sm" color="red" className="ml-2">
+                                            <i className="fas fa-trash"></i>
+                                        </IconButton>
                                     </th>
                                 </tr>
                             )

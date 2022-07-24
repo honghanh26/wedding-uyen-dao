@@ -16,7 +16,7 @@ export default function CardTable(props) {
 
     return (
         <Card>
-            <CardHeader color="blue" className="p-4">
+            <CardHeader color="blue" className="px-3 pt-2">
                 <h2 className="text-white text-2xl">List Banners</h2>
             </CardHeader>
             <CardBody>
