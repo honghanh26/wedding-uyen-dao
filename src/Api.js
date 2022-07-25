@@ -5,3 +5,7 @@ export const API_GET_EDIT_BANNER = process.env.REACT_APP_API_ENDPOINT + '/banner
 export const API_GET_ALL_USERS = process.env.REACT_APP_API_ENDPOINT + '/users';
 export const API_GET_ADD_USER = process.env.REACT_APP_API_ENDPOINT + '/users/add';
 export const API_GET_EDIT_USER = process.env.REACT_APP_API_ENDPOINT + '/users/edit/:id';
+export const API_GET_ALL_EVENTS = process.env.REACT_APP_API_ENDPOINT + '/events';
+export const API_GET_EVENT = process.env.REACT_APP_API_ENDPOINT + '/events/:id';
+export const API_GET_ADD_EVENT = process.env.REACT_APP_API_ENDPOINT + '/events/add';
+export const API_GET_EDIT_EVENT = process.env.REACT_APP_API_ENDPOINT + '/events/edit/:id';

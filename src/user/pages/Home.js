@@ -11,17 +11,19 @@ import Header from '../components/Header';
 import Banner from '../components/Banner';
 import About from '../components/About';
 import Family from '../components/Family';
+import Event from '../components/Event';
 
 function UserHome() {
-    const [data, setData] = useState([]);
+    const [banners, setBanners] = useState([]);
     const [users, setUsers] = useState([]);
+    const [events, setEvents] = useState([]);
     const [boy, setBoy] = useState({});
     const [girl, setGirl] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchBanners = async () => {
             setIsError(false);
             setIsLoading(true);
 
@@ -30,7 +32,7 @@ function UserHome() {
                     Api.API_GET_ALL_BANNERS,
                 );
                 
-                setData(result.data.data);
+                setBanners(result.data.data);
             } catch (error) {
                 setIsError(true);
             }
@@ -58,9 +60,26 @@ function UserHome() {
 
             setIsLoading(false);
         };
+        const fetchEvents = async () => {
+            setIsError(false);
+            setIsLoading(true);
 
-        fetchData();
+            try {
+                const result = await axios(
+                    Api.API_GET_ALL_EVENTS,
+                );
+                
+                setEvents(result.data.data);
+            } catch (error) {
+                setIsError(true);
+            }
+
+            setIsLoading(false);
+        };
+
+        fetchBanners();
         fetchUsers();
+        fetchEvents();
     }, []);
 
     return (
@@ -75,9 +94,10 @@ function UserHome() {
                 /* <!-- END LOADER --> */
             }
             <Header/>
-            <Banner listBanners={data} boy={boy} girl={girl}/>
+            <Banner listBanners={banners} boy={boy} girl={girl}/>
             <About boy={boy} girl={girl}/>
             <Family listUsers={users}/>
+            <Event listEvents={events}/>
         </div>
     );
 }

@@ -4,6 +4,8 @@ import Banners from './admin/pages/banners';
 import BannersForm from './admin/pages/banners/form';
 import Users from './admin/pages/users';
 import UsersForm from './admin/pages/users/form';
+import Events from './admin/pages/events';
+import EventsForm from './admin/pages/events/form';
 
 export const ROUTE_ADMIN_NOTFOUND = "/notfound";
 export const ROUTE_ADMIN_BANNERS = "/banners";
@@ -13,6 +15,8 @@ export const ROUTE_ADMIN_USERS = "/users";
 export const ROUTE_ADMIN_ADD_USER = "/users/add";
 export const ROUTE_ADMIN_EDIT_USER = "/users/edit/:id";
 export const ROUTE_ADMIN_EVENTS = "/events";
+export const ROUTE_ADMIN_ADD_EVENT = "/events/add";
+export const ROUTE_ADMIN_EDIT_EVENT = "/events/edit/:id";
 export const ROUTE_ADMIN_STORIES = "/stories";
 
 const routes = [
@@ -39,7 +43,17 @@ const routes = [
     {
         path : ROUTE_ADMIN_EVENTS,
         exact : true,
-        main : ({ match, location }) => <Users match={match} location={location} />
+        main : ({ match, location }) => <Events match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_ADD_EVENT,
+        exact : false,
+        main : ({ match, location }) => <EventsForm match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_EDIT_EVENT,
+        exact : false,
+        main : ({ match, location }) => <EventsForm match={match} location={location} />
     },
     {
         path : ROUTE_ADMIN_USERS,
