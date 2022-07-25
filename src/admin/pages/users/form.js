@@ -25,9 +25,8 @@ export default function UsersForm() {
     }
 
     let image = ImgDefault;
-    if(user?.img?.data) {
-        const blob = new Blob([Int8Array.from(user.img.data.data)], {type: user.img.contentType });
-        image = window.URL.createObjectURL(blob);
+    if(user?.img) {
+        image = process.env.REACT_APP_UPLOAD_URL + "/" + user.img;
     }
 
     useEffect(() => {

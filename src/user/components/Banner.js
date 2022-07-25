@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import ImgDefault from '../assets/img/default-img.gif';
 
 function Banner(props) {
     const settings = {
@@ -24,8 +25,12 @@ function Banner(props) {
                 <div className="container-fluid px-0">
                     <Slider {...settings}>
                         {data.map((item, idx) => {
-                            const blob = new Blob([Int8Array.from(item.img.data.data)], {type: item.img.contentType });
-                            const image = window.URL.createObjectURL(blob);
+                            let image = ImgDefault;
+                            if(item?.img) { //if(item?.img?.data)
+                                // const blob = new Blob([Int8Array.from(item.img.data.data)], {type: item.img.contentType });
+                                // image = window.URL.createObjectURL(blob);
+                                image = process.env.REACT_APP_UPLOAD_URL + "/" + item.img;
+                            }
                             
                             return(
                                 <div key={idx}>

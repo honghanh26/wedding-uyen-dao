@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ImgDefault from '../assets/img/default-img.gif';
 
 function About(props) {
     const [boy, setBoy] = useState(props.boy);
@@ -7,23 +8,21 @@ function About(props) {
     const [imgGirl, setImgGirl] = useState("");
 
     useEffect(() => {
-        if(props.boy?.img?.data) {
-            const blobBoy = new Blob([Int8Array.from(props.boy.img.data.data)], {type: props.boy.img.contentType });
-            const imageBoy = window.URL.createObjectURL(blobBoy);
-
-            setImgBoy(imageBoy);
+        let imageBoy = ImgDefault;
+        if(props.boy?.img) {
+            imageBoy = process.env.REACT_APP_UPLOAD_URL + "/" + props.boy.img;
         }
         setBoy(props.boy);
+        setImgBoy(imageBoy);
     }, [props.boy])
 
     useEffect(() => {
-        if(props.girl?.img?.data) {
-            const blobGirl = new Blob([Int8Array.from(props.girl.img.data.data)], {type: props.girl.img.contentType });
-            const imageGirl = window.URL.createObjectURL(blobGirl);
-
-            setImgGirl(imageGirl);
+        let imageGirl = ImgDefault;
+        if(props.girl?.img) {
+            imageGirl = process.env.REACT_APP_UPLOAD_URL + "/" + props.girl.img;
         }
         setGirl(props.girl);
+        setImgGirl(imageGirl);
     }, [props.girl])
 
     return (

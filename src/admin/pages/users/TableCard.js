@@ -44,9 +44,8 @@ export default function CardTable(props) {
                         <tbody>
                         {data.map((item, idx) => {
                             let image = ImgDefault;
-                            if(item?.img?.data) {
-                                const blob = new Blob([Int8Array.from(item.img.data.data)], {type: item.img.contentType });
-                                image = window.URL.createObjectURL(blob);
+                            if(item?.img) {
+                                image = process.env.REACT_APP_UPLOAD_URL + "/" + item.img;
                             }
 
                             return (
