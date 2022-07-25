@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { IconButton } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 import TableCard from './TableCard';
 import * as Api from '../../../Api';
+import * as routes from '../../../routes';
 
 export default function Banners() {
     const [data, setData] = useState([]);
@@ -32,6 +35,13 @@ export default function Banners() {
         <>
             <div className="py-3 md:p-3 h-auto">
                 <div className="container mx-auto max-w-full">
+                    <div className="text-right mb-2">
+                        <Link to={`/admin${routes.ROUTE_ADMIN_ADD_BANNER}`}>
+                            <IconButton>
+                                <i className="fas fa-plus text-xl"></i>
+                            </IconButton>
+                        </Link>
+                    </div>
                     <div className="grid grid-cols-1 mb-8">
                         {isError && 
                         <button type="button" className="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled>

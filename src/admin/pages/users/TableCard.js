@@ -27,16 +27,16 @@ export default function CardTable(props) {
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>
-                                <th className="p-2 text-purple-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
+                                <th className="p-2 text-blue-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
                                     Name
                                 </th>
-                                <th className="p-2 text-purple-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
+                                <th className="p-2 text-blue-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
                                     Description
                                 </th>
-                                <th className="p-2 text-purple-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
+                                <th className="p-2 text-blue-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
                                     Image
                                 </th>
-                                <th className="p-2 text-purple-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
+                                <th className="p-2 text-blue-500 align-middle border-b border-solid border-gray-200 text-sm whitespace-nowrap font-light text-left">
                                     Action
                                 </th>
                             </tr>

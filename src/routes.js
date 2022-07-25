@@ -1,11 +1,14 @@
 import React from 'react';
 import NotFound from './admin/pages/NotFound';
 import Banners from './admin/pages/banners';
+import BannersForm from './admin/pages/banners/form';
 import Users from './admin/pages/users';
 import UsersForm from './admin/pages/users/form';
 
 export const ROUTE_ADMIN_NOTFOUND = "/notfound";
 export const ROUTE_ADMIN_BANNERS = "/banners";
+export const ROUTE_ADMIN_ADD_BANNER = "/banners/add";
+export const ROUTE_ADMIN_EDIT_BANNER = "/banners/edit/:id";
 export const ROUTE_ADMIN_USERS = "/users";
 export const ROUTE_ADMIN_ADD_USER = "/users/add";
 export const ROUTE_ADMIN_EDIT_USER = "/users/edit/:id";
@@ -22,6 +25,16 @@ const routes = [
         path : ROUTE_ADMIN_BANNERS,
         exact : true,
         main : ({ match, location }) => <Banners match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_ADD_BANNER,
+        exact : false,
+        main : ({ match, location }) => <BannersForm match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_EDIT_BANNER,
+        exact : false,
+        main : ({ match, location }) => <BannersForm match={match} location={location} />
     },
     {
         path : ROUTE_ADMIN_EVENTS,

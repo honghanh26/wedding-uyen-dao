@@ -10,6 +10,7 @@ import '../assets/css/custom.css';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import About from '../components/About';
+import Family from '../components/Family';
 
 function UserHome() {
     const [data, setData] = useState([]);
@@ -76,6 +77,7 @@ function UserHome() {
             <Header/>
             <Banner listBanners={data} boy={boy} girl={girl}/>
             <About boy={boy} girl={girl}/>
+            <Family listUsers={users}/>
         </div>
     );
 }
