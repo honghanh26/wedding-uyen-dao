@@ -11,7 +11,7 @@ function Header() {
             <header className="top-header">
                 <nav className="navbar header-nav navbar-expand-lg">
                     <div className="container">
-                        <a className="navbar-brand" href="index.html"><img src={logoImg} alt="logo"/></a>
+                        <a className="navbar-brand" href="/"><img src={logoImg} alt="logo"/></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
                             <span></span>
                             <span></span>

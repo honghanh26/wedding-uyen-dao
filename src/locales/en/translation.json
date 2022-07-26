@@ -16,13 +16,17 @@
         "aboutBoy": "About"
     },
     "family": {
-        "description": ""
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "gallery": {
-        "description": ""
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "event": {
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "seeLocation": "See location"
+    },
+    "story": {
+        "title": "Our Story",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
 }

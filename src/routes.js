@@ -6,6 +6,8 @@ import Users from './admin/pages/users';
 import UsersForm from './admin/pages/users/form';
 import Events from './admin/pages/events';
 import EventsForm from './admin/pages/events/form';
+import Stories from './admin/pages/stories';
+import StoriesForm from './admin/pages/stories/form';
 
 export const ROUTE_ADMIN_NOTFOUND = "/notfound";
 export const ROUTE_ADMIN_BANNERS = "/banners";
@@ -18,6 +20,8 @@ export const ROUTE_ADMIN_EVENTS = "/events";
 export const ROUTE_ADMIN_ADD_EVENT = "/events/add";
 export const ROUTE_ADMIN_EDIT_EVENT = "/events/edit/:id";
 export const ROUTE_ADMIN_STORIES = "/stories";
+export const ROUTE_ADMIN_ADD_STORY = "/stories/add";
+export const ROUTE_ADMIN_EDIT_STORY = "/stories/edit/:id";
 
 const routes = [
     {
@@ -73,7 +77,17 @@ const routes = [
     {
         path : ROUTE_ADMIN_STORIES,
         exact : true,
-        main : ({ match, location }) => <Users match={match} location={location} />
+        main : ({ match, location }) => <Stories match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_ADD_STORY,
+        exact : false,
+        main : ({ match, location }) => <StoriesForm match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_EDIT_STORY,
+        exact : false,
+        main : ({ match, location }) => <StoriesForm match={match} location={location} />
     }
 ];
 

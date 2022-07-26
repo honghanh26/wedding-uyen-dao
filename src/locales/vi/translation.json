@@ -24,5 +24,9 @@
     "event": {
         "description": "",
         "seeLocation": "Xem địa điểm"
+    },
+    "story": {
+        "title": "Truyện Chúng Tôi",
+        "description": ""
     }
 }

@@ -9,3 +9,7 @@ export const API_GET_ALL_EVENTS = process.env.REACT_APP_API_ENDPOINT + '/events'
 export const API_GET_EVENT = process.env.REACT_APP_API_ENDPOINT + '/events/:id';
 export const API_GET_ADD_EVENT = process.env.REACT_APP_API_ENDPOINT + '/events/add';
 export const API_GET_EDIT_EVENT = process.env.REACT_APP_API_ENDPOINT + '/events/edit/:id';
+export const API_GET_ALL_STORIES = process.env.REACT_APP_API_ENDPOINT + '/stories';
+export const API_GET_STORY = process.env.REACT_APP_API_ENDPOINT + '/stories/:id';
+export const API_GET_ADD_STORY = process.env.REACT_APP_API_ENDPOINT + '/stories/add';
+export const API_GET_EDIT_STORY = process.env.REACT_APP_API_ENDPOINT + '/stories/edit/:id';
