@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import ImgDefault from '../assets/img/default-img.gif';
+import UserContext from '../../UserContext';
 
 function Banner(props) {
     const settings = {
@@ -13,6 +14,7 @@ function Banner(props) {
         slidesToScroll: 1
     };
     const [data, setData] = useState(props.listBanners);
+    const { strings } = useContext(UserContext);
 
     useEffect(() => {
         setData(props.listBanners);
@@ -38,8 +40,8 @@ function Banner(props) {
                                         <div className="lbox-details py-10">
                                             <h1>#{props.girl.name} & #{props.boy.name}</h1>
                                             <h2>{item.description}</h2>
-                                            <p>Save The Date <strong>20 June 2018</strong></p>
-                                            <a href="#contact" className="btn">Contact</a>
+                                            <p>{strings.banner.saveDate} <strong>20 June 2018</strong></p>
+                                            <a href="#contact" className="btn">{strings.header.contact}</a>
                                         </div>
                                     </div>
                                 </div>

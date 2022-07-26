@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import logoImg from '../assets/img/logo.jpg';
+import UserContext from '../../UserContext';
 
 function Header() {
+    const { strings } = useContext(UserContext);
+
     return (
         <>
             {/* <!-- Start header --> */}
@@ -16,13 +19,13 @@ function Header() {
                         </button>
                         <div className="collapse navbar-collapse justify-content-end" id="navbar-wd">
                             <ul className="navbar-nav">
-                                <li><a className="nav-link active" href="#home">Home</a></li>
-                                <li><a className="nav-link" href="#about">About Us</a></li>
-                                <li><a className="nav-link" href="#story">Story</a></li>
-                                <li><a className="nav-link" href="#family">Family</a></li>
-                                <li><a className="nav-link" href="#gallery">Gallery</a></li>
-                                <li><a className="nav-link" href="#events">Events</a></li>
-                                <li><a className="nav-link" href="#contact">Contact</a></li>
+                                <li><a className="nav-link active" href="#home">{strings.header.home}</a></li>
+                                <li><a className="nav-link" href="#about">{strings.header.about}</a></li>
+                                <li><a className="nav-link" href="#story">{strings.header.story}</a></li>
+                                <li><a className="nav-link" href="#family">{strings.header.family}</a></li>
+                                <li><a className="nav-link" href="#gallery">{strings.header.gallery}</a></li>
+                                <li><a className="nav-link" href="#events">{strings.header.event}</a></li>
+                                <li><a className="nav-link" href="#contact">{strings.header.contact}</a></li>
                             </ul>
                         </div>
                     </div>

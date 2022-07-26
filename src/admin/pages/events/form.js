@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { Card, CardHeader, CardBody, Button, Input, Textarea, Avatar } from '@material-tailwind/react';
+import DatePicker, { registerLocale } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import vi from 'date-fns/locale/vi';
 import * as routes from '../../../routes';
 import * as Api from '../../../Api';
 import ImgDefault from '../../assets/img/default-thumbnail.jpeg';
@@ -12,6 +15,8 @@ export default function UsersForm() {
     const [value, setValue] = useState({});
     const [image, setImage] = useState(ImgDefault);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [eventDate, setEventDate] = useState(new Date());
+    registerLocale('vi', vi)
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const fileInput = useRef();
@@ -52,9 +57,9 @@ export default function UsersForm() {
             setValue({
                 name: event.name,
                 description: event.description,
-                location: event.location,
-                date: event.date
+                location: event.location
             });
+            setEventDate(new Date(event.date));
             if(event?.img) {
                 setImage(process.env.REACT_APP_UPLOAD_URL + "/" + event.img);
             }
@@ -89,6 +94,7 @@ export default function UsersForm() {
         bodyFormData.append('name', value.name);
         bodyFormData.append('description', value.description);
         bodyFormData.append('location', value.location);
+        bodyFormData.append('date', eventDate);
         if(selectedImage) {
             bodyFormData.append('img', selectedImage);
         }
@@ -154,6 +160,9 @@ export default function UsersForm() {
                                                 defaultValue={value["location"]}
                                                 onChange={handleChange}
                                             />
+                                        </div>
+                                        <div className="w-full lg:w-12/12 mt-4 after:font-light">
+                                            <DatePicker selected={eventDate} onChange={(date) => setEventDate(date)} locale="vi" />
                                         </div>
                                         <div className="w-full lg:w-12/12 mt-4 font-light">
                                             <div className="flex">

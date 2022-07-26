@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImgDefault from '../assets/img/default-img.gif';
+import UserContext from '../../UserContext';
 
 function Family(props) {
     const [data, setData] = useState([]);
+    const { strings } = useContext(UserContext);
 
     useEffect(() => {
         let arrUser = props.listUsers.filter((item) => item.role !== "husband" && item.role !== "wife");
@@ -18,8 +20,8 @@ function Family(props) {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="title-box">
-                                <h2>Family</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <h2>{strings.header.family}</h2>
+                                <p>{strings.family.description} </p>
                             </div>
                         </div>
                     </div>

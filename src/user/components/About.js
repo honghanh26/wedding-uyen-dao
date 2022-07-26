@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImgDefault from '../assets/img/default-img.gif';
+import UserContext from '../../UserContext';
 
 function About(props) {
     const [boy, setBoy] = useState(props.boy);
     const [girl, setGirl] = useState(props.girl);
     const [imgBoy, setImgBoy] = useState("");
     const [imgGirl, setImgGirl] = useState("");
+    const { strings } = useContext(UserContext);
 
     useEffect(() => {
         let imageBoy = ImgDefault;
@@ -42,7 +44,7 @@ function About(props) {
                             <div className="col-lg-12 col-md-12 col-sm-12">
                                 <div className="row align-items-center about-main-info">
                                     <div className="col-lg-8 col-md-6 col-sm-12">
-                                        <h2> About <span>{girl.name}</span></h2>
+                                        <h2> {strings.about.aboutGirl} <span>{girl.name}</span></h2>
                                         <p>{girl.description}</p>
                                     </div>
                                     <div className="col-lg-4 col-md-6 col-sm-12">
@@ -58,7 +60,7 @@ function About(props) {
                                         </div>
                                     </div>
                                     <div className="col-lg-8 col-md-6 col-sm-12">
-                                        <h2> About <span>{boy.name}</span></h2>
+                                        <h2> {strings.about.aboutBoy} <span>{boy.name}</span></h2>
                                         <p>{boy.description}</p>
                                     </div>
                                 </div>

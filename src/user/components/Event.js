@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImgDefault from '../assets/img/default-img.gif';
+import UserContext from '../../UserContext';
 
 function Event(props) {
     const [data, setData] = useState([]);
+    const { strings } = useContext(UserContext);
 
     useEffect(() => {
         setData(props.listEvents);
@@ -16,8 +18,8 @@ function Event(props) {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="title-box">
-                                <h2>Events</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <h2>{strings.header.event}</h2>
+                                <p>{strings.event.description} </p>
                             </div>
                         </div>
                     </div>
@@ -34,9 +36,9 @@ function Event(props) {
                                         <div className="event-img">
                                             <img className="img-fluid" src={image} alt={item.name} />
                                         </div>
-                                        <h2>{new Date(item.date).toLocaleDateString('en-GB', {day : 'numeric', month : 'long', year : 'numeric'})} {item.name}</h2>
+                                        <h2>{new Date(item.date).toLocaleDateString('vi-VN', {day : 'numeric', month : 'long', year : 'numeric'})} {item.name}</h2>
                                         <p>{item.description} </p>
-                                        {/* <a href="#">See location ></a> */}
+                                        <a href={`http://maps.google.com/?q=${item.location}`} target="_blank" rel="noreferrer">{strings.event.seeLocation} &gt;</a>
                                     </div>
                                 </div>
                             )

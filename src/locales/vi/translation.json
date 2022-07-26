@@ -1,0 +1,28 @@
+{
+    "header": {
+        "home": "Trang Chủ",
+        "aboutUs": "Về Chúng Tôi",
+        "story": "Câu Truyện",
+        "family": "Gia Đình",
+        "gallery": "Hình Ảnh",
+        "event": "Sự Kiện",
+        "contact": "Liên Hệ"
+    },
+    "banner": {
+        "saveDate": "Ngày Lưu Lại"
+    },
+    "about": {
+        "aboutGirl": "Cô Dâu",
+        "aboutBoy": "Chú Rễ"
+    },
+    "family": {
+        "description": ""
+    },
+    "gallery": {
+        "description": ""
+    },
+    "event": {
+        "description": "",
+        "seeLocation": "Xem địa điểm"
+    }
+}

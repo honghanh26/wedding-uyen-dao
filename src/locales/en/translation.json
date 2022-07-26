@@ -1,0 +1,28 @@
+{
+    "header": {
+        "home": "Home",
+        "aboutUs": "About Us",
+        "story": "Story",
+        "family": "Family",
+        "gallery": "Gallery",
+        "event": "Events",
+        "contact": "Contact"
+    },
+    "banner": {
+        "saveDate": "Save The Date"
+    },
+    "about": {
+        "aboutGirl": "About",
+        "aboutBoy": "About"
+    },
+    "family": {
+        "description": ""
+    },
+    "gallery": {
+        "description": ""
+    },
+    "event": {
+        "description": "",
+        "seeLocation": "See location"
+    }
+}
