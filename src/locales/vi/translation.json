@@ -16,17 +16,37 @@
         "aboutBoy": "Chú Rễ"
     },
     "family": {
+        "title": "",
         "description": ""
     },
     "gallery": {
+        "title": "",
         "description": ""
     },
     "event": {
+        "title": "",
         "description": "",
         "seeLocation": "Xem địa điểm"
     },
     "story": {
         "title": "Truyện Chúng Tôi",
         "description": ""
+    },
+    "contact": {
+        "title": "Liên Lạc Với Chúng Tôi",
+        "description": "",
+        "name": "Tên",
+        "errorName": "Tên không được rỗng",
+        "email": "Email",
+        "errorEmail": "Email không được rỗng",
+        "errorEmailType": "Email không đúng định dạng",
+        "guest": "Số Khách",
+        "errorGuest": "Số khách không được rỗng",
+        "attending": "Tham Dự Tiệc",
+        "errorAttending": "Tham dự tiệc không được rỗng",
+        "message": "Ghi Chú",
+        "errorMessage": "Ghi chú không được rỗng",
+        "send": "Gửi",
+        "errorSend": "Xảy ra lỗi trong quá trình gửi mail"
     }
 }

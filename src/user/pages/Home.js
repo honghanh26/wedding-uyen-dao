@@ -13,6 +13,8 @@ import About from '../components/About';
 import Family from '../components/Family';
 import Event from '../components/Event';
 import Story from '../components/Story';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 function UserHome() {
     const [banners, setBanners] = useState([]);
@@ -118,6 +120,8 @@ function UserHome() {
             <Story listStories={stories}/>
             <Family listUsers={users}/>
             <Event listEvents={events}/>
+            <Contact/>
+            <Footer/>
         </div>
     );
 }

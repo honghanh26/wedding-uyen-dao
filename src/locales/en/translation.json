@@ -16,17 +16,37 @@
         "aboutBoy": "About"
     },
     "family": {
+        "title": "",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "gallery": {
+        "title": "",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "event": {
+        "title": "",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "seeLocation": "See location"
     },
     "story": {
         "title": "Our Story",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "contact": {
+        "title": "Contact with us",
+        "description": "",
+        "name": "Your Name",
+        "errorName": "Please enter your name",
+        "email": "Your Email",
+        "errorEmail": "Please enter your email",
+        "errorEmailType": "Invalid email format",
+        "guest": "Number Of Guest",
+        "errorGuest": "Please select an item in the list",
+        "attending": "I Am Attending",
+        "errorAttending": "Please select an item in the list",
+        "message": "Your Message",
+        "errorMessage": "Write your message",
+        "send": "Send Message",
+        "errorSend": "An error occurred while sending mail"
     }
 }
