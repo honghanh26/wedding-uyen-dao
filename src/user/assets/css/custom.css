@@ -3,3 +3,6 @@
 html {
     scroll-behavior: smooth;
 }
+.collapse.show {
+    transition: display .35s ease;
+}
