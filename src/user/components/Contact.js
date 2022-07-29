@@ -5,7 +5,7 @@ import axios from 'axios';
 import UserContext from '../../UserContext';
 import * as Api from '../../Api';
 
-function Header() {
+function Contact() {
     const { strings } = useContext(UserContext);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -179,4 +179,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default Contact;

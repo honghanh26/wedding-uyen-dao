@@ -20,7 +20,7 @@ function Header() {
                         <div className="collapse navbar-collapse justify-content-end" id="navbar-wd">
                             <ul className="navbar-nav">
                                 <li><a className="nav-link active" href="#home">{strings.header.home}</a></li>
-                                <li><a className="nav-link" href="#about">{strings.header.about}</a></li>
+                                <li><a className="nav-link" href="#about">{strings.header.aboutUs}</a></li>
                                 <li><a className="nav-link" href="#story">{strings.header.story}</a></li>
                                 <li><a className="nav-link" href="#family">{strings.header.family}</a></li>
                                 <li><a className="nav-link" href="#gallery">{strings.header.gallery}</a></li>
