@@ -13,7 +13,7 @@
     "formik": "^2.2.9",
     "react": "^18.2.0 || 16.x || 17.x",
     "react-datepicker": "^4.8.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.2.0 || 16.x || 17.x",
     "react-image-lightbox": "^5.1.4",
     "react-localization": "^1.0.19",
     "react-router-dom": "^6.3.0",
