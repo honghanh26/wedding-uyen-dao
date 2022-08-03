@@ -16,15 +16,15 @@
         "aboutBoy": "Chú Rễ"
     },
     "family": {
-        "title": "",
+        "title": "Gia Đình",
         "description": ""
     },
     "gallery": {
-        "title": "",
+        "title": "Hình Ảnh",
         "description": ""
     },
     "event": {
-        "title": "",
+        "title": "Sự Kiện",
         "description": "",
         "seeLocation": "Xem địa điểm"
     },

@@ -11,6 +11,7 @@ import Header from '../components/Header';
 import Banner from '../components/Banner';
 import About from '../components/About';
 import Family from '../components/Family';
+import Gallery from '../components/Gallery';
 import Event from '../components/Event';
 import Story from '../components/Story';
 import Contact from '../components/Contact';
@@ -19,6 +20,7 @@ import Footer from '../components/Footer';
 function UserHome() {
     const [banners, setBanners] = useState([]);
     const [users, setUsers] = useState([]);
+    const [galleries, setGalleries] = useState([]);
     const [events, setEvents] = useState([]);
     const [stories, setStories] = useState([]);
     const [boy, setBoy] = useState({});
@@ -64,6 +66,22 @@ function UserHome() {
 
             setIsLoading(false);
         };
+        const fetchGalleries = async () => {
+            setIsError(false);
+            setIsLoading(true);
+
+            try {
+                const result = await axios(
+                    Api.API_GET_ALL_GALLERIES,
+                );
+                
+                setGalleries(result.data.data);
+            } catch (error) {
+                setIsError(true);
+            }
+
+            setIsLoading(false);
+        };
         const fetchEvents = async () => {
             setIsError(false);
             setIsLoading(true);
@@ -99,6 +117,7 @@ function UserHome() {
 
         fetchBanners();
         fetchUsers();
+        fetchGalleries();
         fetchEvents();
         fetchStories();
     }, []);
@@ -119,6 +138,7 @@ function UserHome() {
             <About boy={boy} girl={girl}/>
             <Story listStories={stories}/>
             <Family listUsers={users}/>
+            <Gallery listGalleries={galleries}/>
             <Event listEvents={events}/>
             <Contact/>
             <Footer/>
