@@ -11,7 +11,7 @@
     "axios": "^0.27.2",
     "dotenv-webpack": "^8.0.0",
     "formik": "^2.2.9",
-    "react": "^18.2.0",
+    "react": "^18.2.0 || 16.x || 17.x",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-image-lightbox": "^5.1.4",
