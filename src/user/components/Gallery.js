@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import ReactBnbGallery from 'react-bnb-gallery';
+import 'react-bnb-gallery/dist/style.css';
 import ImgDefault from '../assets/img/default-img.gif';
 import UserContext from '../../UserContext';
 
@@ -8,7 +8,6 @@ function Gallery(props) {
     const { strings } = useContext(UserContext);
     const [data, setData] = useState([]);
     const [listImgs, setListImgs] = useState([]);
-    const [photoIndex, setPhotoIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -63,20 +62,11 @@ function Gallery(props) {
                                 )
                             })}
                         </ul>
-                        {isOpen && (
-                        <Lightbox
-                            mainSrc={listImgs[photoIndex]}
-                            nextSrc={listImgs[(photoIndex + 1) % listImgs.length]}
-                            prevSrc={listImgs[(photoIndex + listImgs.length - 1) % listImgs.length]}
-                            onCloseRequest={() => setIsOpen(false)}
-                            onMovePrevRequest={() =>
-                                setPhotoIndex((photoIndex + listImgs.length - 1) % listImgs.length)
-                            }
-                            onMoveNextRequest={() =>
-                                setPhotoIndex((photoIndex + 1) % listImgs.length)
-                            }
+                        <ReactBnbGallery
+                            show={isOpen}
+                            photos={listImgs}
+                            onClose={() => setIsOpen(false)}
                         />
-                        )}
                     </div>
                 </div>
             </div>
