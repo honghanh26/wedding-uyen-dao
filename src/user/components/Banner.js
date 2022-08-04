@@ -38,10 +38,10 @@ function Banner(props) {
                                 <div key={idx}>
                                     <div className="lbox-caption" style={{backgroundImage: `url(${image})`, backgroundSize: 'cover'}}>
                                         <div className="lbox-details py-10">
-                                            <h1>#{props.girl.name} & #{props.boy.name}</h1>
+                                            {/* <h1>#{props.girl.name} & #{props.boy.name}</h1>
                                             <h2>{item.description}</h2>
                                             <p>{strings.banner.saveDate} <strong>20 June 2018</strong></p>
-                                            <a href="#contact" className="btn">{strings.header.contact}</a>
+                                            <a href="#contact" className="btn">{strings.header.contact}</a> */}
                                         </div>
                                     </div>
                                 </div>
