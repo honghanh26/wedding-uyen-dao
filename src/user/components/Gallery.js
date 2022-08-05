@@ -19,7 +19,7 @@ function Gallery(props) {
         setIsOpen(true);
 
         const id = e.target.getAttribute("data-id");
-        let gallery = data.find(item => item.id === id);
+        let gallery = data.find(item => item._id === id);
         let arrImgs = [];
 
         if(gallery?.img && gallery.img.length > 0) {
@@ -54,7 +54,7 @@ function Gallery(props) {
 
                                 return(
                                     <li key={idx}>
-                                        <a href={image} data-id={item.id} onClick={(e) => showPopupImg(e)}>
+                                        <a href={image} data-id={item._id} onClick={(e) => showPopupImg(e)}>
                                             <img className="img-fluid" src={image} alt={item.name}/>
                                             <span className="overlay"><i className="fa fa-heart-o" aria-hidden="true"></i></span>
                                         </a>

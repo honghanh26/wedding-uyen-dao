@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import ImgDefault from '../assets/img/default-img.gif';
-import UserContext from '../../UserContext';
+// import UserContext from '../../UserContext';
 
 function Banner(props) {
     const settings = {
@@ -14,7 +14,7 @@ function Banner(props) {
         slidesToScroll: 1
     };
     const [data, setData] = useState(props.listBanners);
-    const { strings } = useContext(UserContext);
+    // const { strings } = useContext(UserContext);
 
     useEffect(() => {
         setData(props.listBanners);

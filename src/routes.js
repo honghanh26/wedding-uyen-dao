@@ -4,6 +4,8 @@ import Banners from './admin/pages/banners';
 import BannersForm from './admin/pages/banners/form';
 import Users from './admin/pages/users';
 import UsersForm from './admin/pages/users/form';
+import Galleries from './admin/pages/galleries';
+import GalleriesForm from './admin/pages/galleries/form';
 import Events from './admin/pages/events';
 import EventsForm from './admin/pages/events/form';
 import Stories from './admin/pages/stories';
@@ -16,6 +18,9 @@ export const ROUTE_ADMIN_EDIT_BANNER = "/banners/edit/:id";
 export const ROUTE_ADMIN_USERS = "/users";
 export const ROUTE_ADMIN_ADD_USER = "/users/add";
 export const ROUTE_ADMIN_EDIT_USER = "/users/edit/:id";
+export const ROUTE_ADMIN_GALLERIES = "/galleries";
+export const ROUTE_ADMIN_ADD_GALLERY = "/galleries/add";
+export const ROUTE_ADMIN_EDIT_GALLERY = "/galleries/edit/:id";
 export const ROUTE_ADMIN_EVENTS = "/events";
 export const ROUTE_ADMIN_ADD_EVENT = "/events/add";
 export const ROUTE_ADMIN_EDIT_EVENT = "/events/edit/:id";
@@ -43,6 +48,21 @@ const routes = [
         path : ROUTE_ADMIN_EDIT_BANNER,
         exact : false,
         main : ({ match, location }) => <BannersForm match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_GALLERIES,
+        exact : true,
+        main : ({ match, location }) => <Galleries match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_ADD_GALLERY,
+        exact : false,
+        main : ({ match, location }) => <GalleriesForm match={match} location={location} />
+    },
+    {
+        path : ROUTE_ADMIN_EDIT_GALLERY,
+        exact : false,
+        main : ({ match, location }) => <GalleriesForm match={match} location={location} />
     },
     {
         path : ROUTE_ADMIN_EVENTS,

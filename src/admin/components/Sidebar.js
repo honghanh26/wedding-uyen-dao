@@ -28,6 +28,12 @@ const menus = [
         to : '/admin' + routes.ROUTE_ADMIN_STORIES,
         exact : true,
         icon: 'fas fa-history'
+    },
+    {
+        name : 'Galleries',
+        to : '/admin' + routes.ROUTE_ADMIN_GALLERIES,
+        exact : true,
+        icon: 'fas fa-images'
     }
 ];
 
