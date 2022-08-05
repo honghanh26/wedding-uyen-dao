@@ -38,7 +38,9 @@ function Event(props) {
                                         </div>
                                         <h2>{new Date(item.date).toLocaleDateString('vi-VN', {day : 'numeric', month : 'long', year : 'numeric'})} {item.name}</h2>
                                         <p>{item.description} </p>
-                                        <a href={`http://maps.google.com/?q=${item.location}`} target="_blank" rel="noreferrer">{strings.event.seeLocation} &gt;</a>
+                                        {item.location && 
+                                            <a href={`http://maps.google.com/?q=${item.location}`} target="_blank" rel="noreferrer">{strings.event.seeLocation} &gt;</a>
+                                        }
                                     </div>
                                 </div>
                             )
