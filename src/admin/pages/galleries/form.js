@@ -13,8 +13,10 @@ export default function GalleriesForm() {
     // const [listImage, setListImage] = useState([]);
     const [selectedImage, setSelectedImage] = useState([]);
     const [listIndexUpdate, setListIndexUpdate] = useState([]);
+    const [limitImage, setLimitImage] = useState(parseInt(process.env.REACT_APP_LIMIT_UPLOAD_IMAGE));
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    const [mgsError, setMgsError] = useState("");
     const fileInput = useRef([]);
     const { id } = useParams();
     let titlePage = "Add";
@@ -74,6 +76,14 @@ export default function GalleriesForm() {
         }
     }, [gallery]);
 
+    useEffect(() => {
+        if(limitImage < 0) {
+            setMgsError("Số lượng hình ảnh không vượt quá 10 hình trên một lần upload");
+        } else {
+            setMgsError("");
+        }
+    }, [limitImage]);
+
     const handleChange = (event) => {
         let valueTemp = "";
         let nameTemp = "";
@@ -90,6 +100,10 @@ export default function GalleriesForm() {
     const handleDeleteImg = (event) => {
         let idx = event.target.getAttribute("data-idx");
         let objTemp = Object.assign([], selectedImage);
+
+        if(typeof objTemp[idx] !== "string") {
+            setLimitImage(limitImage + 1);
+        }
 
         objTemp.splice(idx, 1);
 
@@ -109,6 +123,7 @@ export default function GalleriesForm() {
             }
 
             setListIndexUpdate(idxTemp);
+            setLimitImage(limitImage - 1);
         } else {
             if(event.target.files.length > 1) {
                 Array.from(event.target.files).forEach(element => {
@@ -120,6 +135,7 @@ export default function GalleriesForm() {
         }
 
         setSelectedImage(objTemp);
+        setLimitImage(limitImage - event.target.files.length);
     }
 
     const handleSubmit = async () => {
@@ -173,7 +189,7 @@ export default function GalleriesForm() {
                                 <div className="w-full flex items-center justify-between">
                                     <h2 className="text-white text-2xl">{titlePage} Gallery</h2>
                                     <Button
-                                        disabled={isLoading}
+                                        disabled={isLoading || mgsError !== ""}
                                         variant="text"
                                         size="lg"
                                         style={{ padding: 0, color: '#fff' }}
@@ -185,8 +201,8 @@ export default function GalleriesForm() {
                             </CardHeader>
                             <CardBody>
                                 <form>
-                                    {isError &&
-                                        <div className='text-red-900'>Error</div>
+                                    {(isError || mgsError) &&
+                                        <div className='text-red-900'>{mgsError ?? "Error"}</div>
                                     }
                                     <div className="flex flex-wrap mt-2">
                                         <div className="w-full lg:w-12/12 font-light">
@@ -199,10 +215,10 @@ export default function GalleriesForm() {
                                             />
                                         </div>
                                         <div className="w-full lg:w-12/12 mt-4 font-light">
-                                            <div className="flex">
+                                            <div className="flex flex-wrap">
                                                 {selectedImage.map((item, idx) => {
                                                     return (
-                                                        <div key={idx} className="w-14 h-14 border-2 border-white position-relative">
+                                                        <div key={idx} className="w-14 border-2 border-white position-relative">
                                                             <i data-idx={idx}
                                                                 className="fas fa-times-circle position-absolute top-0 right-0 z-10 cursor-pointer text-red-800 text-lg"
                                                                 onClick={(e) => handleDeleteImg(e)}
@@ -226,7 +242,7 @@ export default function GalleriesForm() {
                                                     )
                                                 })}
                                                 {selectedImage.length < 10 &&
-                                                    <div className="w-14 h-14 border-2 border-white">
+                                                    <div className="w-14 border-2 border-white">
                                                         <Avatar
                                                             onClick={() => fileInput[11].click()}
                                                             src={ImgDefault}

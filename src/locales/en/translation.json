@@ -21,7 +21,8 @@
     },
     "gallery": {
         "title": "Gallery",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "errorLimitImage": "Number of image is not over 10/upload"
     },
     "event": {
         "title": "Events",

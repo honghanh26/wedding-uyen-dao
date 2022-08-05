@@ -21,7 +21,8 @@
     },
     "gallery": {
         "title": "Hình Ảnh",
-        "description": ""
+        "description": "",
+        "errorLimitImage": "Số lượng hình ảnh không vượt quá 10 hình trên một lần upload"
     },
     "event": {
         "title": "Sự Kiện",
