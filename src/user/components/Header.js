@@ -66,15 +66,15 @@ const useScrollHandler = () => {
 
 function Header(){
     const { strings } = useContext(UserContext);
-    const ids = ["about", "story", "family", "gallery", "events", "contact"];
-    const activeId = useScrollspy(ids, document.getElementsByTagName('header').clientHeight); // 54 is navigation height
+    const ids = ["banner", "about", "story", "family", "gallery", "events", "contact"];
+    const activeId = useScrollspy(ids, document.getElementById('header')?.clientHeight); // 54 is navigation height
     const scroll = useScrollHandler();
     const [ show, setShow ] = useState(false);
 
     return (
         <>
             {/* <!-- Start header --> */}
-            <header className={`top-header ${scroll ? "fixed-menu" : ""}`}>
+            <header id="header" className={`top-header ${scroll ? "fixed-menu" : ""}`}>
                 <nav className="navbar header-nav navbar-expand-lg">
                     <div className="container">
                         <a className="navbar-brand" href="/"><img src={logoImg} alt="logo"/></a>
@@ -92,7 +92,7 @@ function Header(){
                         </button>
                         <div className={`collapse navbar-collapse justify-content-end ${show ? "show" : ""}`} id="navbar-wd">
                             <ul className="navbar-nav">
-                                <li><a className={`nav-link ${"home" === activeId ? "active" : ""}`} href="#home">{strings.header.home}</a></li>
+                                <li><a className={`nav-link ${"banner" === activeId ? "active" : ""}`} href="#banner">{strings.header.home}</a></li>
                                 <li><a className={`nav-link ${"about" === activeId ? "active" : ""}`} href="#about">{strings.header.aboutUs}</a></li>
                                 <li><a className={`nav-link ${"story" === activeId ? "active" : ""}`} href="#story">{strings.header.story}</a></li>
                                 <li><a className={`nav-link ${"family" === activeId ? "active" : ""}`} href="#family">{strings.header.family}</a></li>

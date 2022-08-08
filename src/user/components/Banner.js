@@ -23,7 +23,7 @@ function Banner(props) {
     return (
         <>
             {/* <!-- Start Banner --> */}
-            <div className="ulockd-home-slider">
+            <div id="banner" className="ulockd-home-slider">
                 <div className="container-fluid px-0">
                     <Slider {...settings}>
                         {data.map((item, idx) => {
