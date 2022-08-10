@@ -36,7 +36,7 @@ function About(props) {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="title-box">
-                                    <h2>{girl.name} <span>&</span> {boy.name}</h2>
+                                    <h2>{girl?.name} <span>&</span> {boy?.name}</h2>
                                 </div>
                             </div>
                         </div>
@@ -44,8 +44,8 @@ function About(props) {
                             <div className="col-lg-12 col-md-12 col-sm-12">
                                 <div className="row align-items-center about-main-info">
                                     <div className="col-lg-8 col-md-6 col-sm-12">
-                                        <h2> {strings.about.aboutGirl} <span>{girl.name}</span></h2>
-                                        <p>{girl.description}</p>
+                                        <h2> {strings.about.aboutGirl} <span>{girl?.name}</span></h2>
+                                        <p>{girl?.description}</p>
                                     </div>
                                     <div className="col-lg-4 col-md-6 col-sm-12">
                                         <div className="about-img">
@@ -60,8 +60,8 @@ function About(props) {
                                         </div>
                                     </div>
                                     <div className="col-lg-8 col-md-6 col-sm-12">
-                                        <h2> {strings.about.aboutBoy} <span>{boy.name}</span></h2>
-                                        <p>{boy.description}</p>
+                                        <h2> {strings.about.aboutBoy} <span>{boy?.name}</span></h2>
+                                        <p>{boy?.description}</p>
                                     </div>
                                 </div>
                             </div>
