@@ -101,7 +101,7 @@ export default function Sidebar() {
                         rel="noreferrer"
                         className="mt-2 text-center w-full inline-block"
                     >
-                        <h6 color="gray">{boy.name} - {girl.name}</h6>
+                        <h6 color="gray">{boy?.name} - {girl?.name}</h6>
                     </a>
                     <div className="flex flex-col">
                         <hr className="my-4 min-w-full" />
