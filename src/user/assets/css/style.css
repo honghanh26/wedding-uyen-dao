@@ -641,6 +641,7 @@ button:focus{
 	float: left;
 	border: none;
 	overflow: hidden;
+	font-size: 0;
 }
 .gallery-box ul li a{
 	position: relative;
