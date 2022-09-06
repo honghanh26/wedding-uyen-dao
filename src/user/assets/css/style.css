@@ -358,7 +358,7 @@ button:focus{
 
 .lbox-caption {
     display: table;
-    height: 80vh;
+    height: 85vh;
     width: 100%;
 }
 
@@ -368,6 +368,8 @@ button:focus{
     left: 0;
     right: 0;
 	z-index: 10;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .lbox-details {
@@ -803,6 +805,11 @@ select.form-control:not([size]):not([multiple]){
 	color: #63c7bd;
 }
 
+@media screen and (max-width: 767px){
+    .lbox-caption {
+		height: 50vh;
+	}
+}
 
 
 
