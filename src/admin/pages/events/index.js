@@ -10,24 +10,24 @@ export default function Events() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    const fetchData = async () => {
+        setIsError(false);
+        setIsLoading(true);
+
+        try {
+            const result = await axios(
+                Api.API_GET_ALL_EVENTS,
+            );
+            
+            setData(result.data.data);
+        } catch (error) {
+            setIsError(true);
+        }
+
+        setIsLoading(false);
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            setIsError(false);
-            setIsLoading(true);
-
-            try {
-                const result = await axios(
-                    Api.API_GET_ALL_EVENTS,
-                );
-                
-                setData(result.data.data);
-            } catch (error) {
-                setIsError(true);
-            }
-
-            setIsLoading(false);
-        };
         fetchData();
     }, []);
 
@@ -58,7 +58,7 @@ export default function Events() {
                                 Loading...
                             </button>
                         ) : (
-                            <TableCard list={data}/>
+                            <TableCard list={data} fetchData={fetchData}/>
                         )}
                     </div>
                 </div>
