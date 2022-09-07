@@ -17,7 +17,7 @@ export default function Users() {
             <div className="py-3 md:p-3 h-auto">
                 <div className="container mx-auto max-w-full">
                     <div className="text-right mb-2">
-                        <Link to={`/admin${routes.ROUTE_ADMIN_ADD_USER}`}>
+                        <Link to={`/admin20220925${routes.ROUTE_ADMIN_ADD_USER}`}>
                             <IconButton>
                                 <i className="fas fa-plus text-xl"></i>
                             </IconButton>

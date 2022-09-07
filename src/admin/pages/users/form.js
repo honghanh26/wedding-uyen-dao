@@ -89,7 +89,7 @@ export default function UsersForm() {
                 headers: { "Content-Type": "multipart/form-data" },
             })
             .then(response => {
-                navigate("/admin" + routes.ROUTE_ADMIN_USERS);
+                navigate("/admin20220925" + routes.ROUTE_ADMIN_USERS);
                 setReload(true);
             })
             .catch(error => { setIsError(true) });

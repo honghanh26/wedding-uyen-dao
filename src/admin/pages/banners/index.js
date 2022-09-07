@@ -10,24 +10,24 @@ export default function Banners() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    const fetchData = async () => {
+        setIsError(false);
+        setIsLoading(true);
 
+        try {
+            const result = await axios(
+                Api.API_GET_ALL_BANNERS,
+            );
+            
+            setData(result.data.data);
+        } catch (error) {
+            setIsError(true);
+        }
+
+        setIsLoading(false);
+    };
+    
     useEffect(() => {
-        const fetchData = async () => {
-            setIsError(false);
-            setIsLoading(true);
-
-            try {
-                const result = await axios(
-                    Api.API_GET_ALL_BANNERS,
-                );
-                
-                setData(result.data.data);
-            } catch (error) {
-                setIsError(true);
-            }
-
-            setIsLoading(false);
-        };
         fetchData();
     }, []);
 
@@ -36,7 +36,7 @@ export default function Banners() {
             <div className="py-3 md:p-3 h-auto">
                 <div className="container mx-auto max-w-full">
                     <div className="text-right mb-2">
-                        <Link to={`/admin${routes.ROUTE_ADMIN_ADD_BANNER}`}>
+                        <Link to={`/admin20220925${routes.ROUTE_ADMIN_ADD_BANNER}`}>
                             <IconButton>
                                 <i className="fas fa-plus text-xl"></i>
                             </IconButton>
@@ -58,7 +58,7 @@ export default function Banners() {
                                 Loading...
                             </button>
                         ) : (
-                            <TableCard list={data}/>
+                            <TableCard list={data} fetchData={fetchData}/>
                         )}
                     </div>
                 </div>

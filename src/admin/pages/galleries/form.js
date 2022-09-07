@@ -169,7 +169,7 @@ export default function GalleriesForm() {
                 headers: { "Content-Type": "multipart/form-data" },
             })
             .then(response => {
-                navigate("/admin" + routes.ROUTE_ADMIN_GALLERIES);
+                navigate("/admin20220925" + routes.ROUTE_ADMIN_GALLERIES);
             })
             .catch(error => { setIsError(true) });
         } catch (error) {

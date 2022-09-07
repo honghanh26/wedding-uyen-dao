@@ -7,31 +7,31 @@ import UserContext from '../../UserContext';
 const menus = [
     {
         name : 'Users',
-        to : '/admin/users',
+        to : '/admin20220925/users',
         exact : true,
         icon: 'fas fa-users'
     },
     {
         name : 'Banners',
-        to : '/admin' + routes.ROUTE_ADMIN_BANNERS,
+        to : '/admin20220925' + routes.ROUTE_ADMIN_BANNERS,
         exact : true,
         icon: 'fas fa-sliders-h'
     },
     {
         name : 'Events',
-        to : '/admin' + routes.ROUTE_ADMIN_EVENTS,
+        to : '/admin20220925' + routes.ROUTE_ADMIN_EVENTS,
         exact : true,
         icon: 'fas fa-calendar-alt'
     },
     {
         name : 'Stories',
-        to : '/admin' + routes.ROUTE_ADMIN_STORIES,
+        to : '/admin20220925' + routes.ROUTE_ADMIN_STORIES,
         exact : true,
         icon: 'fas fa-history'
     },
     {
         name : 'Galleries',
-        to : '/admin' + routes.ROUTE_ADMIN_GALLERIES,
+        to : '/admin20220925' + routes.ROUTE_ADMIN_GALLERIES,
         exact : true,
         icon: 'fas fa-images'
     }

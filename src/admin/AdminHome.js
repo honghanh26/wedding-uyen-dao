@@ -65,7 +65,7 @@ function AdminHome() {
                     { showContentMenu(routes) }
                     <Route
                         path="/"
-                        element={<Navigate to="/admin/users" replace />}
+                        element={<Navigate to="/admin20220925/users" replace />}
                     />
                 </Routes>
             </div>

@@ -79,7 +79,7 @@ export default function CardTable(props) {
                                         </div>
                                     </th>
                                     <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap p-2 text-left">
-                                        <Link to={`/admin${routes.ROUTE_ADMIN_EDIT_EVENT.replace(":id", item.id)}`}>
+                                        <Link to={`/admin20220925${routes.ROUTE_ADMIN_EDIT_EVENT.replace(":id", item.id)}`}>
                                             <IconButton size="sm" color="amber">
                                                 <i className="fas fa-pen"></i>
                                             </IconButton>

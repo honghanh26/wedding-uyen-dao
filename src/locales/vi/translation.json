@@ -48,6 +48,9 @@
         "message": "Ghi Chú",
         "errorMessage": "Ghi chú không được rỗng",
         "send": "Gửi",
-        "errorSend": "Xảy ra lỗi trong quá trình gửi mail"
+        "errorSend": "Xảy ra lỗi trong quá trình gửi mail",
+        "allEvents": "Tất cả các sự kiện",
+        "weddingCeremony": "Lễ cưới",
+        "receptionParty": "Tiệc chiêu đãi"
     }
 }

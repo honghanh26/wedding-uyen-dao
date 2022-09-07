@@ -4,14 +4,55 @@ import {
     CardHeader,
     CardBody,
     IconButton,
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
   } from "@material-tailwind/react";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import * as routes from '../../../routes';
+import * as Api from '../../../Api';
 import ImgDefault from '../../assets/img/default-thumbnail.jpeg';
 
 export default function CardTable(props) {
     const [data, setData] = useState(props.list);
+    const [open, setOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [id, setId] = useState("");
+
+    const handleOpen = () => setOpen(!open);
+
+    const handleDelete = async () => {
+        setIsError(false);
+        setIsLoading(true);
+        let url = "";
+        let method = "";
+
+        if(id) {
+            url = Api.API_GET_DELETE_BANNER.replace(":id", id);
+            method = "delete";
+        }
+
+        try {
+            await axios({
+                method: method,
+                url: url,
+            })
+            .then(response => {
+                handleOpen();
+                props.fetchData();
+            })
+            .catch(error => { setIsError(true) });
+        } catch (error) {
+            setIsError(true);
+        }
+        
+        setIsLoading(false);
+    }
 
     useEffect(() => {
         setData(props.list);
@@ -67,12 +108,12 @@ export default function CardTable(props) {
                                         </div>
                                     </th>
                                     <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap p-2 text-left">
-                                        <Link to={`/admin${routes.ROUTE_ADMIN_EDIT_BANNER.replace(":id", item.id)}`}>
+                                        <Link to={`/admin20220925${routes.ROUTE_ADMIN_EDIT_BANNER.replace(":id", item.id)}`}>
                                             <IconButton size="sm" color="amber">
                                                 <i className="fas fa-pen"></i>
                                             </IconButton>
                                         </Link>
-                                        <IconButton size="sm" color="red" className="ml-2">
+                                        <IconButton size="sm" color="red" className="ml-2" data-id={item.id} onClick={(e) => {handleOpen(); setId(e.currentTarget.getAttribute("data-id"))}}>
                                             <i className="fas fa-trash"></i>
                                         </IconButton>
                                     </th>
@@ -82,6 +123,37 @@ export default function CardTable(props) {
                         </tbody>
                     </table>
                 </div>
+                <Dialog
+                    open={open}
+                    handler={handleOpen}
+                    animate={{
+                    mount: { scale: 1, y: 0 },
+                    unmount: { scale: 0.9, y: -100 },
+                    }}
+                >
+                    <DialogHeader>
+                    Bạn có chắc muốn xóa không?
+                    </DialogHeader>
+                    { isError && 
+                    <DialogBody divider>
+                        <span className="text-red-500">Xảy ra lỗi</span>
+                    </DialogBody>
+                    }
+                    <DialogFooter>
+                        <Button
+                            variant="text"
+                            color="red"
+                            onClick={() => {handleOpen(); setId("")}}
+                            className="mr-1"
+                            disable={isLoading.toString()}
+                        >
+                            <span>Thoát</span>
+                        </Button>
+                        <Button variant="gradient" color="green" disable={isLoading.toString()} onClick={handleDelete}>
+                            <span>Đồng ý</span>
+                        </Button>
+                    </DialogFooter>
+                </Dialog>
             </CardBody>
         </Card>
     );

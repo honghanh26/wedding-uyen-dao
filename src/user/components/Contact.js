@@ -39,13 +39,13 @@ function Contact() {
 
             switch (body.event) {
                 case "1":
-                    body.event = "All events";
+                    body.event = strings.contact.allEvents;
                     break;
                 case "2":
-                    body.event = "Wedding ceremony";
+                    body.event = strings.contact.weddingCeremony;
                     break;
                 case "3":
-                    body.event = "Reception party";
+                    body.event = strings.contact.receptionParty;
                     break;
                 default:
                     break;
@@ -139,9 +139,9 @@ function Contact() {
                                             onBlur={formik.handleBlur}
                                         >
                                             <option disabled value="">{strings.contact.attending}*</option>
-                                            <option value="1">All events</option>
-                                            <option value="2">Wedding ceremony</option>
-                                            <option value="3">Reception party</option>
+                                            <option value="1">{strings.contact.allEvents}</option>
+                                            <option value="2">{strings.contact.weddingCeremony}</option>
+                                            <option value="3">{strings.contact.receptionParty}</option>
                                         </select>
                                         {formik.errors.event && formik.touched.event && (
                                             <div className="help-block with-errors text-danger">{formik.errors.event}</div>

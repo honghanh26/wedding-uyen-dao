@@ -48,6 +48,9 @@
         "message": "Your Message",
         "errorMessage": "Write your message",
         "send": "Send Message",
-        "errorSend": "An error occurred while sending mail"
+        "errorSend": "An error occurred while sending mail",
+        "allEvents": "All events",
+        "weddingCeremony": "Wedding ceremony",
+        "receptionParty": "Reception party"
     }
 }

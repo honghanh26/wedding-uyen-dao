@@ -107,7 +107,7 @@ export default function UsersForm() {
                 headers: { "Content-Type": "multipart/form-data" },
             })
             .then(response => {
-                navigate("/admin" + routes.ROUTE_ADMIN_EVENTS);
+                navigate("/admin20220925" + routes.ROUTE_ADMIN_EVENTS);
             })
             .catch(error => { setIsError(true) });
         } catch (error) {

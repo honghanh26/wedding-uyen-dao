@@ -36,7 +36,7 @@ export default function Galleries() {
             <div className="py-3 md:p-3 h-auto">
                 <div className="container mx-auto max-w-full">
                     <div className="text-right mb-2">
-                        <Link to={`/admin${routes.ROUTE_ADMIN_ADD_GALLERY}`}>
+                        <Link to={`/admin20220925${routes.ROUTE_ADMIN_ADD_GALLERY}`}>
                             <IconButton>
                                 <i className="fas fa-plus text-xl"></i>
                             </IconButton>

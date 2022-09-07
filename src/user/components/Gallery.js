@@ -53,8 +53,8 @@ function Gallery(props) {
                                 }
 
                                 return(
-                                    <li key={idx}>
-                                        <a href={image} data-id={item._id} onClick={(e) => showPopupImg(e)}>
+                                    <li key={idx} onClick={(e) => showPopupImg(e)}>
+                                        <a href={image} data-id={item._id}>
                                             <img className="img-fluid" src={image} alt={item.name}/>
                                             <span className="overlay"><i className="fa fa-heart-o" aria-hidden="true"></i></span>
                                         </a>

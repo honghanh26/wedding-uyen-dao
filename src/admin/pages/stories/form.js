@@ -95,7 +95,7 @@ export default function UsersForm() {
                 headers: { "Content-Type": "application/json" },
             })
             .then(response => {
-                navigate("/admin" + routes.ROUTE_ADMIN_STORIES);
+                navigate("/admin20220925" + routes.ROUTE_ADMIN_STORIES);
             })
             .catch(error => { setIsError(true) });
         } catch (error) {
