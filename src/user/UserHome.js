@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import LocalizedStrings from 'react-localization';
 
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import translationEN from '../locales/en/translation';
 import translationVI from '../locales/vi/translation';
 import { UserProvider } from '../UserContext';
@@ -33,6 +34,10 @@ function UserHome() {
                 <Route
                     path="/"
                     element={<Home />}
+                />
+                <Route
+                    path="/*"
+                    element={<NotFound />}
                 />
             </Routes>
         </UserProvider>
