@@ -6,3 +6,6 @@ html {
 .collapse.show {
     transition: display .35s ease;
 }
+.react-images__view-image--isModal {
+    display: inline-block;
+}

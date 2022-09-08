@@ -1,35 +1,62 @@
-import React, { useState, useEffect, useContext } from "react";
-import ReactBnbGallery from 'react-bnb-gallery';
-import 'react-bnb-gallery/dist/style.css';
-import ImgDefault from '../assets/img/default-img.gif';
+import React, { useState, useEffect, useContext, useCallback } from "react";
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
 import UserContext from '../../UserContext';
 
-function Gallery(props) {
+function GalleryPhoto(props) {
     const { strings } = useContext(UserContext);
     const [data, setData] = useState([]);
     const [listImgs, setListImgs] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
+    const [listImgsDetail, setListImgsDetail] = useState([]);
+    const [currentImage, setCurrentImage] = useState(0);
+    const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-    useEffect(() => {
-        setData(props.listGalleries);
-    }, [props.listGalleries])
-
-    const showPopupImg = (e) => {
-        e.preventDefault();
-        setIsOpen(true);
-
-        const id = e.target.getAttribute("data-id");
+    const openLightbox = useCallback((event, { photo, index }) => {
+        const id = photo.id;
         let gallery = data.find(item => item._id === id);
-        let arrImgs = [];
+        let arrImgsDetail = [];
 
         if(gallery?.img && gallery.img.length > 0) {
             gallery.img.forEach(item => {
-                arrImgs.push(process.env.REACT_APP_UPLOAD_URL + "/" + item);
+                let objDetail = {
+                    src: process.env.REACT_APP_UPLOAD_URL + "/" + item,
+                    width: 1,
+                    height: 1,
+                    id: gallery._id
+                }
+                arrImgsDetail.push(objDetail);
             });
         }
         
+        setListImgsDetail(arrImgsDetail);
+        setCurrentImage(0);
+        setViewerIsOpen(true);
+    }, [data]);
+
+    const closeLightbox = () => {
+        setCurrentImage(0);
+        setViewerIsOpen(false);
+    };
+
+    useEffect(() => {
+        let listGalleries = props.listGalleries;
+        let arrImgs = [];
+
+        listGalleries.forEach(item => {
+            if(item?.img && item.img.length > 0) {
+                let obj = {
+                    src: process.env.REACT_APP_UPLOAD_URL + "/" + item.img[0],
+                    width: 1,
+                    height: 1,
+                    id: item._id
+                }
+                arrImgs.push(obj);
+            }
+        });
+        
+        setData(listGalleries);
         setListImgs(arrImgs);
-    }
+    }, [props.listGalleries])
 
     return (
         <>
@@ -44,29 +71,22 @@ function Gallery(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <ul className="popup-gallery clearfix">
-                            {data.map((item, idx) => {
-                                let image = ImgDefault;
-                                if(item?.img && item.img.length > 0) {
-                                    image = process.env.REACT_APP_UPLOAD_URL + "/" + item.img[0];
-                                }
-
-                                return(
-                                    <li key={idx} onClick={(e) => showPopupImg(e)}>
-                                        <a href={image} data-id={item._id}>
-                                            <img className="img-fluid" src={image} alt={item.name}/>
-                                            <span className="overlay"><i className="fa fa-heart-o" aria-hidden="true"></i></span>
-                                        </a>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                        <ReactBnbGallery
-                            show={isOpen}
-                            photos={listImgs}
-                            onClose={() => setIsOpen(false)}
-                        />
+                    <div>
+                        <Gallery photos={listImgs} onClick={openLightbox} />
+                        <ModalGateway>
+                            {viewerIsOpen ? (
+                            <Modal onClose={closeLightbox}>
+                                <Carousel
+                                currentIndex={currentImage}
+                                views={listImgsDetail.map(x => ({
+                                    ...x,
+                                    srcset: x.srcSet,
+                                    caption: x.title
+                                }))}
+                                />
+                            </Modal>
+                            ) : null}
+                        </ModalGateway>
                     </div>
                 </div>
             </div>
@@ -75,4 +95,4 @@ function Gallery(props) {
     );
 }
 
-export default Gallery;
+export default GalleryPhoto;
