@@ -39,13 +39,13 @@ function Contact() {
 
             switch (body.event) {
                 case "1":
-                    body.event = strings.contact.allEvents;
+                    body.event = strings.contact.receptionPartyVuQuy;
                     break;
                 case "2":
-                    body.event = strings.contact.weddingCeremony;
+                    body.event = strings.contact.receptionPartyTanHon;
                     break;
                 case "3":
-                    body.event = strings.contact.receptionParty;
+                    body.event = strings.contact.receptionPartyBaoHy;
                     break;
                 default:
                     break;
@@ -120,6 +120,7 @@ function Contact() {
                                             onBlur={formik.handleBlur}
                                         >
                                             <option disabled value="">{strings.contact.guest}*</option>
+                                            <option value="0">Gửi quà mừng</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -139,9 +140,9 @@ function Contact() {
                                             onBlur={formik.handleBlur}
                                         >
                                             <option disabled value="">{strings.contact.attending}*</option>
-                                            <option value="1">{strings.contact.allEvents}</option>
-                                            <option value="2">{strings.contact.weddingCeremony}</option>
-                                            <option value="3">{strings.contact.receptionParty}</option>
+                                            <option value="1">{strings.contact.receptionPartyVuQuy}</option>
+                                            <option value="2">{strings.contact.receptionPartyTanHon}</option>
+                                            <option value="3">{strings.contact.receptionPartyBaoHy}</option>
                                         </select>
                                         {formik.errors.event && formik.touched.event && (
                                             <div className="help-block with-errors text-danger">{formik.errors.event}</div>

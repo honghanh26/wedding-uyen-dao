@@ -13,6 +13,7 @@ function Event(props) {
     return (
         <>
             {/* <!-- Start Events --> */}
+            {data.length > 0 &&
             <div id="events" className="events-box">
                 <div className="container">
                     <div className="row">
@@ -48,6 +49,7 @@ function Event(props) {
                     </div>
                 </div>
             </div>
+            }
             {/* <!-- End Events --> */}
         </>
     );

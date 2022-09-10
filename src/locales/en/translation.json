@@ -51,6 +51,9 @@
         "errorSend": "An error occurred while sending mail",
         "allEvents": "All events",
         "weddingCeremony": "Wedding ceremony",
-        "receptionParty": "Reception party"
+        "receptionParty": "Reception party",
+        "receptionPartyVuQuy": "Tiệc Vu Quy",
+        "receptionPartyTanHon": "Tiệc Tân Hôn",
+        "receptionPartyBaoHy": "Tiệc Báo Hỷ"
     }
 }

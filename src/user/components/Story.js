@@ -12,6 +12,7 @@ function Story(props) {
     return (
         <>
             {/* <!-- Start Story --> */}
+            {data.length > 0 &&
             <div id="story" className="story-box main-timeline-box">
                 <div className="container">
                     <div className="row">
@@ -46,6 +47,7 @@ function Story(props) {
                     })}
                 </div>
             </div>
+            }
             {/* <!-- End Story --> */}
         </>
     );

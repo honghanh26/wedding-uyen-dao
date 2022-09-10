@@ -15,6 +15,7 @@ function Family(props) {
     return (
         <>
             {/* <!-- Start Family --> */}
+            {data.length > 0 &&
             <div id="family" className="family-box">
                 <div className="container">
                     <div className="row">
@@ -49,6 +50,7 @@ function Family(props) {
                     </div>
                 </div>
             </div>
+            }
             {/* <!-- End Family --> */}
         </>
     );

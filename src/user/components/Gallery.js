@@ -61,6 +61,7 @@ function GalleryPhoto(props) {
     return (
         <>
             {/* <!-- Start Gallery --> */}
+            {listImgs.length > 0 &&
             <div id="gallery" className="gallery-box">
                 <div className="container-fluid">
                     <div className="row">
@@ -90,6 +91,7 @@ function GalleryPhoto(props) {
                     </div>
                 </div>
             </div>
+            }
             {/* <!-- End Gallery --> */}
         </>
     );

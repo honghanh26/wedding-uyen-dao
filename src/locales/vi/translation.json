@@ -34,15 +34,15 @@
         "description": ""
     },
     "contact": {
-        "title": "Liên Lạc Với Chúng Tôi",
+        "title": "Dự Tiệc Nha!",
         "description": "",
         "name": "Tên",
         "errorName": "Tên không được rỗng",
         "email": "Email",
         "errorEmail": "Email không được rỗng",
         "errorEmailType": "Email không đúng định dạng",
-        "guest": "Số Khách",
-        "errorGuest": "Số khách không được rỗng",
+        "guest": "Số Khách Tham Gia",
+        "errorGuest": "Số khách tham gia không được rỗng",
         "attending": "Tham Dự Tiệc",
         "errorAttending": "Tham dự tiệc không được rỗng",
         "message": "Ghi Chú",
@@ -51,6 +51,9 @@
         "errorSend": "Xảy ra lỗi trong quá trình gửi mail",
         "allEvents": "Tất cả các sự kiện",
         "weddingCeremony": "Lễ cưới",
-        "receptionParty": "Tiệc chiêu đãi"
+        "receptionParty": "Tiệc chiêu đãi",
+        "receptionPartyVuQuy": "Tiệc Vu Quy",
+        "receptionPartyTanHon": "Tiệc Tân Hôn",
+        "receptionPartyBaoHy": "Tiệc Báo Hỷ"
     }
 }

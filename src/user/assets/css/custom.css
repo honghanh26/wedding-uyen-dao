@@ -9,3 +9,6 @@ html {
 .react-images__view-image--isModal {
     display: inline-block;
 }
+.react-photo-gallery--gallery img {
+    object-fit: cover;
+}
